@@ -12,3 +12,9 @@ pub fn fmt_info() -> String {
 
     return format!("| {os_type} | {version} | {edition} | {codename} | {bitness} | {architecture} |");
 }
+
+pub fn get_os_type() -> Type {
+    let info = os_info::get();
+    let os_type = info.os_type();
+    return os_type;
+}

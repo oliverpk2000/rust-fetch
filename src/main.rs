@@ -1,5 +1,8 @@
 mod info;
+mod ascii;
 
 fn main() {
-    println!("{}", info::fmt_info())
+    let logo = ascii::get_logo(info::get_os_type());
+    println!("{}", info::fmt_info());
+    println!("{}", logo);
 }
