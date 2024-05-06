@@ -51,7 +51,10 @@ pub fn get_logo(os_type: Type) -> ColoredString {
         Type::RockyLinux => { return "TODO".to_string().red(); }
         Type::Solus => { return "TODO".to_string().red(); }
         Type::SUSE => { return "TODO".to_string().red(); }
-        Type::Ubuntu => { return "TODO".to_string().red(); }
+        Type::Ubuntu => {
+            let ubuntu_logo = include_str!("logos/ubuntu.ascii");
+            return ubuntu_logo.to_string().truecolor(255, 150, 0);
+        }
         Type::Ultramarine => { return "TODO".to_string().red(); }
         Type::Void => { return "TODO".to_string().red(); }
         Type::Unknown => { return "TODO".to_string().red(); }
