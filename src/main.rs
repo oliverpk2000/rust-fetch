@@ -1,3 +1,5 @@
+mod info;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}", info::fmt_info())
 }
