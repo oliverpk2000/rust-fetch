@@ -31,3 +31,21 @@ pub fn print_fmt_de_info() {
         None => println!("desktop environment: none found"),
     }
 }
+
+pub fn print_fmt_sh_info() {
+    let system = sysinfo::System::new_with_specifics(
+        sysinfo::RefreshKind::new().with_processes(sysinfo::ProcessRefreshKind::new()),
+    );
+    let my_pid = sysinfo::get_current_pid().expect("unable to get PID of the current process");
+    let parent_pid = system
+        .process(my_pid)
+        .expect("no self process?")
+        .parent()
+        .expect("unable to get parent process");
+    let parent_process = system
+        .process(parent_pid)
+        .expect("unable to get parent process");
+    let parent_name = parent_process.name();
+
+    println!("{}: {}", "parent process".yellow(), parent_name);
+}
