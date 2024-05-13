@@ -22,8 +22,7 @@ pub fn print_fmt_os_info() {
 
 pub fn get_os_type() -> Type {
     let info = os_info::get();
-    let os_type = info.os_type();
-    return os_type;
+    info.os_type()
 }
 
 pub fn print_fmt_de_info() {
