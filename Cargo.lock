@@ -13,6 +13,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "detect-desktop-environment"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cf27a1bbe31ac901a2350a6316b1f7056067118abe6bf1ff015d5950ac5e3eb3"
+
+[[package]]
 name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -58,6 +64,7 @@ name = "rust-fetch"
 version = "0.1.0"
 dependencies = [
  "colored",
+ "detect-desktop-environment",
  "os_info",
 ]
 

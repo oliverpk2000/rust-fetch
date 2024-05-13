@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 colored = "2.1.0"
+detect-desktop-environment = "1.1.0"
 os_info = "3.8.2"
