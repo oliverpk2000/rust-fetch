@@ -1,16 +1,7 @@
+use colored::Colorize;
 use os_info::Type;
 
-pub fn fmt_info_header() -> String {
-    return format!("| {0: <15} | {1: <15} | {2: <20} | {3: <15} | {4: <10} | {5: <15} |",
-                   "os_type",
-                   "version",
-                   "edition",
-                   "codename",
-                   "bitness",
-                   "architecture");
-}
-
-pub fn fmt_info() -> String {
+pub fn print_fmt_info() {
     let info = os_info::get();
 
     let os_type = info.os_type();
@@ -20,13 +11,12 @@ pub fn fmt_info() -> String {
     let bitness = info.bitness();
     let architecture = info.architecture().unwrap_or("unknown/error");
 
-    return format!("| {0: <15} | {1: <15} | {2: <20} | {3: <15} | {4: <10} | {5: <15} |",
-                   os_type.to_string(),
-                   version.to_string(),
-                   edition,
-                   codename,
-                   bitness.to_string(),
-                   architecture);
+    println!("{}: {}", "OS".yellow(), os_type);
+    println!("{}: {}", "version".yellow(), version);
+    println!("{}: {}", "edition".yellow(), edition);
+    println!("{}: {}", "codename".yellow(), codename);
+    println!("{}: {}", "bitness".yellow(), bitness);
+    println!("{}: {}", "architecture".yellow(), architecture);
 }
 
 pub fn get_os_type() -> Type {
