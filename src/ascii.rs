@@ -2,7 +2,7 @@ use colored::{ColoredString, Colorize};
 use os_info::Type;
 
 pub fn get_logo(os_type: Type) -> ColoredString {
-    return match os_type {
+    match os_type {
         Type::AIX => { "TODO".to_string().red() }
         Type::AlmaLinux => { "TODO".to_string().red() }
         Type::Alpaquita => { "TODO".to_string().red() }
