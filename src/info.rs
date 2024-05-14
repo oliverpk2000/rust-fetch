@@ -1,6 +1,7 @@
 use colored::Colorize;
 use detect_desktop_environment::DesktopEnvironment;
 use os_info::Type;
+use sysinfo::System;
 
 pub fn print_fmt_os_info() {
     let info = os_info::get();
@@ -48,4 +49,28 @@ pub fn print_fmt_sh_info() {
     let parent_name = parent_process.name();
 
     println!("{}: {}", "parent process".yellow(), parent_name);
+}
+
+pub fn print_fmt_mem_info() {
+    let mut sys = System::new_all();
+    sys.refresh_all();
+
+    let total_mem_gb = sys.total_memory() as f64 / 1000000000.0;
+    let used_mem_gb = sys.used_memory() as f64 / 1000000000.0;
+
+    let total_swap_gb = sys.total_swap() as f64 / 1000000000.0;
+    let used_swap_gb = sys.used_swap() as f64 / 1000000000.0;
+
+    println!(
+        "{}: {:.2} GB / {:.2} GB",
+        "memory".yellow(),
+        used_mem_gb,
+        total_mem_gb
+    );
+    println!(
+        "{}: {:.2} GB / {:.2} GB",
+        "swap".yellow(),
+        used_swap_gb,
+        total_swap_gb
+    );
 }
