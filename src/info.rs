@@ -61,7 +61,16 @@ pub fn print_fmt_mem_info() {
     let total_swap_gb = sys.total_swap() as f64 / 1000000000.0;
     let used_swap_gb = sys.used_swap() as f64 / 1000000000.0;
 
-
-    println!("{}: {:.2} GB / {:.2} GB", "memory".yellow(), used_mem_gb, total_mem_gb);
-    println!("{}: {:.2} GB / {:.2} GB", "swap".yellow(), used_swap_gb, total_swap_gb);
+    println!(
+        "{}: {:.2} GB / {:.2} GB",
+        "memory".yellow(),
+        used_mem_gb,
+        total_mem_gb
+    );
+    println!(
+        "{}: {:.2} GB / {:.2} GB",
+        "swap".yellow(),
+        used_swap_gb,
+        total_swap_gb
+    );
 }
